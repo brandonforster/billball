@@ -17,6 +17,8 @@ namespace BillBall
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            Parser parser = new Parser();
+            parser.parse();
         }
     }
 }
