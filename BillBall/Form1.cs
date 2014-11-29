@@ -16,5 +16,10 @@ namespace BillBall
         {
             InitializeComponent();
         }
+
+        public void writeToDatabox(String text)
+        {
+            this.dataBox.Text += text ;
+        }
     }
 }

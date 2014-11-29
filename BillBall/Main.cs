@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace BillBall
 {
-    static class Program
+    static class main
     {
         /// <summary>
         /// The main entry point for the application.
@@ -16,9 +16,13 @@ namespace BillBall
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            Parser parser = new Parser();
+            Form1 mainWindow = new Form1();
+            
+            Parser parser = new Parser(mainWindow);
+            
             parser.parse();
+
+            Application.Run(mainWindow);
         }
     }
 }
