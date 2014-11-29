@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BillBall
 {
-    public class years
+    public class Result
     {
         public double count { get; set; }
         public string year { get; set; }

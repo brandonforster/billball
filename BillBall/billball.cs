@@ -49,7 +49,14 @@ namespace BillBall
 
             var jsonString = new System.Net.WebClient().DownloadString("http://capitolwords.org/api/1/dates.json?phrase=united+states&granularity=year&apikey=7cfafa1ba04746ecbcf902540f3037d1");
             mainWindow.writeToDatabox(jsonString);
-            var data = JsonConvert.DeserializeObject<results>(jsonString);
+            RootObject data = JsonConvert.DeserializeObject<RootObject>(jsonString);
+            if (data == null)
+                mainWindow.writeToDatabox("NULL");
+            else
+            {
+                string result = "" + data.getCount();
+                mainWindow.writeToDatabox(result);
+            }
 
         }   
     }
