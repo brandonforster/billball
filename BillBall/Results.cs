@@ -8,11 +8,16 @@ namespace BillBall
 {
     class RootObject
     {
-        public List<Result> Years { get; set; }
+        public List<Result> results { get; set; }
 
         public int getCount()
         {
-            return 0;
+            int runningCount = 0;
+            for (int i = 0; i < results.Count; i++)
+            {
+                runningCount += (int)results[i].count;
+            }
+            return runningCount;
         }
     }
 }

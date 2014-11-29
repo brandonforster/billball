@@ -56,7 +56,7 @@ namespace BillBall
                 mainWindow.writeToDatabox("NULL");
             else
             {
-                string result = "" + data.getCount();
+                string result = "\n" + data.getCount();
                 mainWindow.writeToDatabox(result);
             }
 
