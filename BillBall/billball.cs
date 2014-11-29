@@ -43,11 +43,13 @@ namespace BillBall
             this.mainWindow = newWindow;
         }
 
-        public void parse()
+        public void parse(String textToParse)
         {
-            //public string key = "7cfafa1ba04746ecbcf902540f3037d1";
+            const String apiKey = "7cfafa1ba04746ecbcf902540f3037d1";
+            // replace all spaces in the phrase with plus so that it performs the lookup correctly
+            textToParse.Replace('+', ' ');
 
-            var jsonString = new System.Net.WebClient().DownloadString("http://capitolwords.org/api/1/dates.json?phrase=united+states&granularity=year&apikey=7cfafa1ba04746ecbcf902540f3037d1");
+            var jsonString = new System.Net.WebClient().DownloadString("http://capitolwords.org/api/1/dates.json?phrase=" + textToParse + "&granularity=year&apikey=" + apiKey);
             mainWindow.writeToDatabox(jsonString);
             var data = JsonConvert.DeserializeObject<results>(jsonString);
 
