@@ -27,6 +27,7 @@ namespace BillBall
 
         private void sbmtBtn_Click(object sender, EventArgs e)
         {
+            dataBox.Text = String.Empty;
             billball.parse(inputBox.Text);
         }
 

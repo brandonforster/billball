@@ -90,7 +90,7 @@
             this.Controls.Add(this.inputBox);
             this.Controls.Add(this.dataBox);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Bill Ball";
             this.ResumeLayout(false);
             this.PerformLayout();
 
