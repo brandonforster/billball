@@ -51,7 +51,14 @@ namespace BillBall
 
             var jsonString = new System.Net.WebClient().DownloadString("http://capitolwords.org/api/1/dates.json?phrase=" + textToParse + "&granularity=year&apikey=" + apiKey);
             mainWindow.writeToDatabox(jsonString);
-            var data = JsonConvert.DeserializeObject<results>(jsonString);
+            RootObject data = JsonConvert.DeserializeObject<RootObject>(jsonString);
+            if (data == null)
+                mainWindow.writeToDatabox("NULL");
+            else
+            {
+                string result = "" + data.getCount();
+                mainWindow.writeToDatabox(result);
+            }
 
         }   
     }

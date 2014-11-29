@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace BillBall
 {
-    class results
+    class RootObject
     {
-        public List<years> Years { get; set; }
+        public List<Result> Years { get; set; }
+
+        public int getCount()
+        {
+            return 0;
+        }
     }
 }
