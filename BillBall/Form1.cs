@@ -12,9 +12,22 @@ namespace BillBall
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private billball billball;
+
+        public Form1(billball billball)
         {
             InitializeComponent();
+            this.billball = billball;
+        }
+
+        public void writeToDatabox(String text)
+        {
+            this.dataBox.Text += text ;
+        }
+
+        private void sbmtBtn_Click(object sender, EventArgs e)
+        {
+            billball.parse();
         }
     }
 }
