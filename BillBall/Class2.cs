@@ -6,16 +6,8 @@ using System.Threading.Tasks;
 
 namespace BillBall
 {
-    class Data
+    class results
     {
-        public List<Year> Years { get; set; }
-
-        public void results()
-        {
-            for(int i = 0; i < Years.Count; i++)
-            {
-                Console.WriteLine(Years[i].count);
-            }
-        }
+        public List<years> Years { get; set; }
     }
 }
