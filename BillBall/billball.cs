@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Collections;
 
 
 namespace BillBall
@@ -14,6 +15,7 @@ namespace BillBall
     public class billball
     {
         private Form1 mainWindow;
+        private ArrayList resultsList;
 
         /// <summary>
         /// The main entry point for the application.
@@ -29,6 +31,7 @@ namespace BillBall
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             this.mainWindow = new Form1(this);
+            this.resultsList= new ArrayList();
 
             Application.Run(mainWindow);
         }
@@ -43,20 +46,23 @@ namespace BillBall
             this.mainWindow = newWindow;
         }
 
-        public void parse()
+        public void parse(String textToParse)
         {
-            //public string key = "7cfafa1ba04746ecbcf902540f3037d1";
+            const String apiKey = "7cfafa1ba04746ecbcf902540f3037d1";
+            // replace all spaces in the phrase with plus so that it performs the lookup correctly
+            textToParse.Replace('+', ' ');
 
-            var jsonString = new System.Net.WebClient().DownloadString("http://capitolwords.org/api/1/dates.json?phrase=united+states&granularity=year&apikey=7cfafa1ba04746ecbcf902540f3037d1");
-            mainWindow.writeToDatabox(jsonString);
+            var jsonString = new System.Net.WebClient().DownloadString("http://capitolwords.org/api/1/dates.json?phrase=" + textToParse + "&granularity=year&apikey=" + apiKey);
             RootObject data = JsonConvert.DeserializeObject<RootObject>(jsonString);
             if (data == null)
-                mainWindow.writeToDatabox("NULL");
+                mainWindow.writeToDatabox("Please enter a string to check!");
             else
             {
-                string result = "\n" + data.getCount();
-                mainWindow.writeToDatabox(result);
+                string result = "" + data.getCount();
+                mainWindow.writeToDatabox("This word has been used " + result + " times!");
             }
+
+            resultsList.Add(data);
 
         }   
     }

@@ -32,6 +32,7 @@
             this.inputBox = new System.Windows.Forms.TextBox();
             this.sbmtBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.clearBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dataBox
@@ -46,12 +47,12 @@
             // 
             this.inputBox.Location = new System.Drawing.Point(98, 12);
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(429, 20);
+            this.inputBox.Size = new System.Drawing.Size(348, 20);
             this.inputBox.TabIndex = 1;
             // 
             // sbmtBtn
             // 
-            this.sbmtBtn.Location = new System.Drawing.Point(533, 9);
+            this.sbmtBtn.Location = new System.Drawing.Point(452, 9);
             this.sbmtBtn.Name = "sbmtBtn";
             this.sbmtBtn.Size = new System.Drawing.Size(75, 23);
             this.sbmtBtn.TabIndex = 2;
@@ -68,17 +69,28 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Term to Search";
             // 
+            // clearBtn
+            // 
+            this.clearBtn.Location = new System.Drawing.Point(533, 9);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(75, 23);
+            this.clearBtn.TabIndex = 4;
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 431);
+            this.Controls.Add(this.clearBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.sbmtBtn);
             this.Controls.Add(this.inputBox);
             this.Controls.Add(this.dataBox);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Bill Ball";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,6 +102,7 @@
         private System.Windows.Forms.TextBox inputBox;
         private System.Windows.Forms.Button sbmtBtn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button clearBtn;
 
     }
 }
