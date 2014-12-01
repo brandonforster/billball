@@ -28,12 +28,24 @@ namespace BillBall
         private void sbmtBtn_Click(object sender, EventArgs e)
         {
             dataBox.Text = String.Empty;
-            billball.parse(inputBox.Text);
+            billball.parse(inputBox1.Text);
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
         {
             dataBox.Text = String.Empty;
         }
+
+        private void sbmtBtn2_Click(object sender, EventArgs e)
+        {
+            dataBox.Text = String.Empty;
+            billball.parse(inputBox2.Text);
+        }
+
+        private void clearBtn2_Click(object sender, EventArgs e)
+        {
+            dataBox.Text = String.Empty;
+        }
+
     }
 }
