@@ -38,6 +38,9 @@
             this.srcValLabel = new System.Windows.Forms.Label();
             this.srcWorthLabel = new System.Windows.Forms.Label();
             this.srcPointsLabel = new System.Windows.Forms.Label();
+            this.searchWorthLabel = new System.Windows.Forms.Label();
+            this.searchValLabel = new System.Windows.Forms.Label();
+            this.searchPointsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dataBox
@@ -52,12 +55,12 @@
             // 
             this.inputBox.Location = new System.Drawing.Point(102, 39);
             this.inputBox.Name = "inputBox";
-            this.inputBox.Size = new System.Drawing.Size(348, 20);
+            this.inputBox.Size = new System.Drawing.Size(133, 20);
             this.inputBox.TabIndex = 1;
             // 
             // sbmtBtn
             // 
-            this.sbmtBtn.Location = new System.Drawing.Point(456, 36);
+            this.sbmtBtn.Location = new System.Drawing.Point(248, 37);
             this.sbmtBtn.Name = "sbmtBtn";
             this.sbmtBtn.Size = new System.Drawing.Size(75, 23);
             this.sbmtBtn.TabIndex = 2;
@@ -76,7 +79,7 @@
             // 
             // clearBtn
             // 
-            this.clearBtn.Location = new System.Drawing.Point(537, 36);
+            this.clearBtn.Location = new System.Drawing.Point(329, 37);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(75, 23);
             this.clearBtn.TabIndex = 4;
@@ -109,7 +112,7 @@
             // 
             this.srcValLabel.AutoSize = true;
             this.srcValLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.srcValLabel.Location = new System.Drawing.Point(342, 17);
+            this.srcValLabel.Location = new System.Drawing.Point(342, 19);
             this.srcValLabel.Name = "srcValLabel";
             this.srcValLabel.Size = new System.Drawing.Size(74, 19);
             this.srcValLabel.TabIndex = 8;
@@ -129,17 +132,47 @@
             // 
             this.srcPointsLabel.AutoSize = true;
             this.srcPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.srcPointsLabel.Location = new System.Drawing.Point(433, 19);
+            this.srcPointsLabel.Location = new System.Drawing.Point(422, 19);
             this.srcPointsLabel.Name = "srcPointsLabel";
             this.srcPointsLabel.Size = new System.Drawing.Size(49, 17);
             this.srcPointsLabel.TabIndex = 9;
             this.srcPointsLabel.Text = "points!";
+            // 
+            // searchWorthLabel
+            // 
+            this.searchWorthLabel.AutoSize = true;
+            this.searchWorthLabel.Location = new System.Drawing.Point(410, 41);
+            this.searchWorthLabel.Name = "searchWorthLabel";
+            this.searchWorthLabel.Size = new System.Drawing.Size(90, 13);
+            this.searchWorthLabel.TabIndex = 10;
+            this.searchWorthLabel.Text = "Your play is worth";
+            // 
+            // searchValLabel
+            // 
+            this.searchValLabel.AutoSize = true;
+            this.searchValLabel.Location = new System.Drawing.Point(506, 42);
+            this.searchValLabel.Name = "searchValLabel";
+            this.searchValLabel.Size = new System.Drawing.Size(10, 13);
+            this.searchValLabel.TabIndex = 11;
+            this.searchValLabel.Text = " ";
+            // 
+            // searchPointsLabel
+            // 
+            this.searchPointsLabel.AutoSize = true;
+            this.searchPointsLabel.Location = new System.Drawing.Point(559, 41);
+            this.searchPointsLabel.Name = "searchPointsLabel";
+            this.searchPointsLabel.Size = new System.Drawing.Size(38, 13);
+            this.searchPointsLabel.TabIndex = 12;
+            this.searchPointsLabel.Text = "points!";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 431);
+            this.Controls.Add(this.searchPointsLabel);
+            this.Controls.Add(this.searchValLabel);
+            this.Controls.Add(this.searchWorthLabel);
             this.Controls.Add(this.srcPointsLabel);
             this.Controls.Add(this.srcValLabel);
             this.Controls.Add(this.srcWorthLabel);
@@ -152,6 +185,7 @@
             this.Controls.Add(this.dataBox);
             this.Name = "Form1";
             this.Text = "Bill Ball";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +203,9 @@
         private System.Windows.Forms.Label srcValLabel;
         private System.Windows.Forms.Label srcWorthLabel;
         private System.Windows.Forms.Label srcPointsLabel;
+        private System.Windows.Forms.Label searchWorthLabel;
+        private System.Windows.Forms.Label searchValLabel;
+        private System.Windows.Forms.Label searchPointsLabel;
 
     }
 }

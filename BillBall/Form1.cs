@@ -18,11 +18,12 @@ namespace BillBall
         {
             InitializeComponent();
             this.billball = billball;
-        }
 
-        public void setSourceWord()
-        {
+            Console.WriteLine("The word is: " + billball.getSourceWord());
 
+            // initialize the source word
+            this.srcWordLabel.Text= billball.getSourceWord();
+            this.srcValLabel.Text = "" + billball.getWordScore(billball.getSourceWord());
         }
 
         public void writeToDatabox(String text)
@@ -32,8 +33,11 @@ namespace BillBall
 
         private void sbmtBtn_Click(object sender, EventArgs e)
         {
+            this.searchValLabel.Text = String.Empty;
             dataBox.Text = String.Empty;
-            billball.parse(inputBox.Text);
+
+            // show the user's play in the GUI
+            this.searchValLabel.Text= "" + billball.getWordScore(inputBox.Text);
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
@@ -42,6 +46,11 @@ namespace BillBall
         }
 
         private void srcLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
