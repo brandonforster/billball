@@ -23,7 +23,7 @@ namespace BillBall
 
             // initialize the source word
             this.srcWordLabel.Text= billball.getSourceWord();
-            this.srcValLabel.Text = "" + billball.getWordScore(billball.getSourceWord());
+            this.srcValLabel.Text = "" + billball.getSourceWordScore();
         }
 
         public void writeToDatabox(String text)
@@ -38,6 +38,9 @@ namespace BillBall
 
             // show the user's play in the GUI
             this.searchValLabel.Text= "" + billball.getWordScore(inputBox.Text);
+
+            // run the game loop and pass it the played word's score
+            gameLoop(billball.getWordScore(inputBox.Text));
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
