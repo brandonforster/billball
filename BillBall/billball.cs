@@ -64,6 +64,49 @@ namespace BillBall
             return this.mainWindow;
         }
 
+        public int calcPinsHit(int srcScore, int playScore)
+        {
+            // what percent is the score of the play to the source?
+            double percentage = ((double) playScore) / ((double) srcScore);
+
+            // 100- 90%: strike
+            if (percentage >= .9)
+                return 10;
+
+            // 89.9 - 80: 9
+            else if (percentage >= .8)
+                return 9;
+
+            else if (percentage >= .7)
+                return 8;
+
+            else if (percentage >= .6)
+                return 7;
+
+            else if (percentage >= .5)
+                return 6;
+
+            // for arbitrary game design reasons, make everything
+            // lower than 50% accuracy worth 1 pin less
+            else if (percentage >= .4)
+                return 4;
+
+            else if (percentage >= .3)
+                return 3;
+
+            else if (percentage >= .2)
+                return 2;
+
+            else if (percentage >= .1)
+                return 1;
+
+            // gutterball! this occurs if your guess
+            // is 90% off from the correct value or
+            // if your guess is too high.
+            else
+                return 0;
+        }
+
         public void setWindow(Form1 newWindow)
         {
             this.mainWindow = newWindow;
