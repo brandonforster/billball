@@ -35,5 +35,10 @@ namespace BillBall
         {
             dataBox.Text = String.Empty;
         }
+
+        private void srcLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
