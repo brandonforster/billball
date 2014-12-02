@@ -14,8 +14,11 @@ namespace BillBall
 {
     public class billball
     {
+        private const string DICTIONARY_FILENAME= "dictionary.txt";
+
         private Form1 mainWindow;
         private ArrayList resultsList;
+        private string[] dictionary;
 
         /// <summary>
         /// The main entry point for the application.
@@ -33,7 +36,16 @@ namespace BillBall
             this.mainWindow = new Form1(this);
             this.resultsList= new ArrayList();
 
+            // pull from the dictionary of source words. This should be a textfile in the same directory.
+            getSourceWordDictionary();
+
             Application.Run(mainWindow);
+        }
+
+        public void getSourceWordDictionary()
+        {
+            this.dictionary = System.IO.File.ReadAllLines(DICTIONARY_FILENAME);
+            Console.WriteLine(dictionary[0]);
         }
 
         public Form1 getWindow()

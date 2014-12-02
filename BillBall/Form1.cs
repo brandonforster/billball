@@ -20,6 +20,11 @@ namespace BillBall
             this.billball = billball;
         }
 
+        public void setSourceWord()
+        {
+
+        }
+
         public void writeToDatabox(String text)
         {
             this.dataBox.Text += text ;
