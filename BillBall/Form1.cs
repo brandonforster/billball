@@ -40,7 +40,7 @@ namespace BillBall
             this.searchValLabel.Text= "" + billball.getWordScore(inputBox.Text);
 
             // run the game loop and pass it the played word's score
-            gameLoop(billball.getWordScore(inputBox.Text));
+            billball.gameLoop(billball.getWordScore(inputBox.Text));
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
