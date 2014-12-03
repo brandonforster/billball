@@ -21,6 +21,7 @@ namespace BillBall
         private ArrayList scores; //Array of scores, 10 is spare, 11 is strike
         private string[] dictionary;
         private string sourceWord;
+        private int sourceWordScore;
         private int score;
         private int frame;
         private int bowlInFrame;
@@ -68,11 +69,10 @@ namespace BillBall
         }
 
         //Need this to be called whenever submit is pressed. 
-        public void gameLoop()
+        public void gameLoop(int playedWordScore)
         {
-            //This should be how big their number is compared to the target. ie, 1.01 means its bigger
-            //This can be passed in or gotten through a function
-            double percent = .10;
+            //percentage of the score of the word the player chose versus the source word
+            double percent = (double) playedWordScore / (double) getSourceWordScore();
 
             //how many pints the current percent gets down, based on pins left
             //Basically, split up 100 percent into number of pins left + 1
@@ -220,11 +220,18 @@ namespace BillBall
             // pick a random word from the dictionary
             Random rnd = new Random();
             this.sourceWord= dictionary[rnd.Next(0, this.dictionary.Length)];
+
+            this.sourceWordScore = getWordScore(this.sourceWord);
         }
 
         public string getSourceWord()
         {
             return this.sourceWord;
+        }
+
+        public int getSourceWordScore()
+        {
+            return this.sourceWordScore;
         }
 
         public Form1 getWindow()
