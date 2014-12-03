@@ -77,7 +77,7 @@ namespace BillBall
             //how many pints the current percent gets down, based on pins left
             //Basically, split up 100 percent into number of pins left + 1
             //ie: 1 pin left is 50% for hit 50% for miss, 2 is 33% for his 2, 33% for hit 1, 33% for miss
-            int thisScore = (int)(percent / (pinsLeft + 1));
+            int thisScore = (int)(percent * (pinsLeft + 1) - 1);
             
             //Gets last two scores since they might be needed
             int secondLastScore = 0;
@@ -209,8 +209,9 @@ namespace BillBall
             else
                 Console.WriteLine("Illegal Position");
 
+            setSourceWord();
             //Testing purposes, printing game state
-            Console.WriteLine("Frame: " + frame + " Pins left: " + pinsLeft + " Score: " + score);
+            Console.WriteLine("Frame: " + frame + " Pins left: " + pinsLeft + " Score: " + score + " Percent: " + percent + " This Score: " + thisScore);
         }
 
         public void setSourceWord()
