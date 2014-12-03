@@ -22,7 +22,12 @@ namespace BillBall
             Console.WriteLine("The word is: " + billball.getSourceWord());
 
             // initialize the source word
-            this.srcWordLabel.Text= billball.getSourceWord();
+            setSourceWord();
+        }
+
+        public void setSourceWord()
+        {
+            this.srcWordLabel.Text = billball.getSourceWord();
             this.srcValLabel.Text = "" + billball.getSourceWordScore();
         }
 
