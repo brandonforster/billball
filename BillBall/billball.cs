@@ -53,12 +53,10 @@ namespace BillBall
         //A function to set up the game loop
         public void startGame()
         {
-            // pull from the dictionary of source words. This should be a textfile in the same directory.
             score = 0;
             frame = 1;
             bowlInFrame = 1;
             pinsLeft = 10;
-            setSourceWord();
             scores = new ArrayList();
         }
 
@@ -209,7 +207,7 @@ namespace BillBall
             else
                 Console.WriteLine("Illegal Position");
 
-            setSourceWord();
+            this.mainWindow.setSourceWord();
             //Testing purposes, printing game state
             Console.WriteLine("Frame: " + frame + " Pins left: " + pinsLeft + " Score: " + score + " Percent: " + percent + " This Score: " + thisScore);
         }

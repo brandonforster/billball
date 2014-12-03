@@ -19,14 +19,15 @@ namespace BillBall
             InitializeComponent();
             this.billball = billball;
 
-            Console.WriteLine("The word is: " + billball.getSourceWord());
-
             // initialize the source word
             setSourceWord();
+
+            Console.WriteLine("The word is: " + billball.getSourceWord());
         }
 
         public void setSourceWord()
         {
+            this.billball.setSourceWord();
             this.srcWordLabel.Text = billball.getSourceWord();
             this.srcValLabel.Text = "" + billball.getSourceWordScore();
         }
