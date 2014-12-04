@@ -46,12 +46,11 @@ namespace BillBall
         public void scoreUpdate(int frameCount, int totalScore)
         {
             this.scoreValLabel.Text = "" + totalScore;
-            this.frameLabel.Text = "poop";
+            this.frameLabel.Text = "" + frameCount;
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
         {
-            this.frameValLabel.Text = "poop";
         }
 
         private void srcLabel_Click(object sender, EventArgs e)
