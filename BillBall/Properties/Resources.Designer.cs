@@ -113,6 +113,26 @@ namespace BillBall.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap specHit {
+            get {
+                object obj = ResourceManager.GetObject("specHit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap specSpare {
+            get {
+                object obj = ResourceManager.GetObject("specSpare", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap strike {
             get {
                 object obj = ResourceManager.GetObject("strike", resourceCulture);
