@@ -46,6 +46,7 @@ namespace BillBall
             startGame();
 
             this.mainWindow = new Form1(this);
+            this.mainWindow.loadGamePict();
 
             Application.Run(mainWindow);
         }
@@ -72,10 +73,10 @@ namespace BillBall
             //percentage of the score of the word the player chose versus the source word
             double percent = (double) playedWordScore / (double) getSourceWordScore();
 
-            //how many pints the current percent gets down, based on pins left
+            //how many pins the current percent gets down, based on pins left
             //Basically, split up 100 percent into number of pins left + 1
             //ie: 1 pin left is 50% for hit 50% for miss, 2 is 33% for his 2, 33% for hit 1, 33% for miss
-            int thisScore = (int)(percent * (pinsLeft + 1) - 1);
+            int thisScore = (int)(percent * (pinsLeft + 1));
             
             //Gets last two scores since they might be needed
             int secondLastScore = 0;
@@ -84,13 +85,17 @@ namespace BillBall
                 secondLastScore = (int)scores[scores.Count - 2];
             if(scores.Count > 0)
                 lastScore = (int)scores[scores.Count - 1];
-            
+
+            this.mainWindow.loadGamePict();
+
             //Gutter ball
             if (percent >= 1 || thisScore == 0)
             {
                 //If first shot in frame
                 if (bowlInFrame == 1)
                 {
+                    //Display gutterball GIF in pictureBox1
+                    this.mainWindow.loadNewPict(1);                
                     bowlInFrame++;
                     scores.Add(0);
                 }
@@ -138,6 +143,8 @@ namespace BillBall
                 //Checks to see if its a spare
                 else if (thisScore + lastScore == 10)
                 {
+                    //Display spare GIF in pictureBox1
+                    this.mainWindow.loadNewPict(5);
                     scores.Add(10);
                     bowlInFrame++;
                     pinsLeft = 10;
@@ -145,6 +152,8 @@ namespace BillBall
                 //Checks to see if its a strike
                 else if (thisScore == 10 && lastScore == 11)
                 {
+                    //Display strike GIF in pictureBox1
+                    this.mainWindow.loadNewPict(2);
                     scores.Add(11);
                     bowlInFrame++;
                     pinsLeft = 10;
@@ -152,6 +161,8 @@ namespace BillBall
                 //Otherwise sees if last one was a strike
                 else if (lastScore == 11)
                 {
+                    //Display strike GIF in pictureBox1
+                    this.mainWindow.loadNewPict(2);
                     scores.Add(thisScore);
                     bowlInFrame++;
                 }
@@ -171,7 +182,11 @@ namespace BillBall
                     score += thisScore;
                 //Checks for spare
                 if (lastScore + thisScore == 10)
+                {
+                    //Display spare GIF in pictureBox1
+                    this.mainWindow.loadNewPict(5);
                     scores.Add(10);
+                }
                 else
                     scores.Add(thisScore);
             }
@@ -188,6 +203,8 @@ namespace BillBall
                 //Checks for strike
                 if(thisScore == 10)
                 {
+                    //Display strike GIF in pictureBox1
+                    this.mainWindow.loadNewPict(2);
                     scores.Add(11);
                     if (frame == 10)
                         bowlInFrame++;
@@ -208,6 +225,7 @@ namespace BillBall
                 Console.WriteLine("Illegal Position");
 
             this.mainWindow.setSourceWord();
+            this.mainWindow.scoreUpdate(frame, score);
             //Testing purposes, printing game state
             Console.WriteLine("Frame: " + frame + " Pins left: " + pinsLeft + " Score: " + score + " Percent: " + percent + " This Score: " + thisScore);
         }
@@ -264,6 +282,6 @@ namespace BillBall
             resultsList.Add(data);
 
             return wordScore;
-        }   
+        }
     }
 }
