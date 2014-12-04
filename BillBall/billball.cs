@@ -46,6 +46,7 @@ namespace BillBall
             startGame();
 
             this.mainWindow = new Form1(this);
+            this.mainWindow.loadGamePict();
 
             Application.Run(mainWindow);
         }
@@ -63,7 +64,7 @@ namespace BillBall
         //Im just calling this when the game ends
         public void gameEnd()
         {
-            
+            startGame();
         }
 
         //Need this to be called whenever submit is pressed. 
@@ -72,7 +73,7 @@ namespace BillBall
             //percentage of the score of the word the player chose versus the source word
             double percent = (double) playedWordScore / (double) getSourceWordScore();
 
-            //how many pints the current percent gets down, based on pins left
+            //how many pins the current percent gets down, based on pins left
             //Basically, split up 100 percent into number of pins left + 1
             //ie: 1 pin left is 50% for hit 50% for miss, 2 is 33% for his 2, 33% for hit 1, 33% for miss
             int thisScore = (int)(percent * (pinsLeft + 1));
@@ -84,19 +85,34 @@ namespace BillBall
                 secondLastScore = (int)scores[scores.Count - 2];
             if(scores.Count > 0)
                 lastScore = (int)scores[scores.Count - 1];
-            
+
+            this.mainWindow.loadGamePict();
+
             //Gutter ball
             if (percent >= 1 || thisScore == 0)
             {
                 //If first shot in frame
                 if (bowlInFrame == 1)
                 {
+                    //Display gutterball GIF in pictureBox1
+                    this.mainWindow.loadNewPict(1);
                     bowlInFrame++;
                     scores.Add(0);
                 }
                 //If second shot and not tenth frame, move to next frame
                 else if (frame < 10 && bowlInFrame == 2)
                 {
+                    if (lastScore >= 1 && lastScore <= 9)
+                    {
+                        //Display miss GIF in pictureBox1
+                        this.mainWindow.loadNewPict(4);
+                    }
+                    else 
+                    {
+                        //Display gutterball GIF in pictureBox1
+                        this.mainWindow.loadNewPict(1);
+                    }
+
                     bowlInFrame = 1;
                     frame++;
                     pinsLeft = 10;
@@ -105,12 +121,26 @@ namespace BillBall
                 //If second shot of tenth frame and first wasnt a strike
                 else if (frame == 10 && bowlInFrame == 2 && lastScore != 11)
                 {
+                    if(lastScore >= 1 && lastScore <= 9)
+                    {
+                        //Display miss GIF in pictureBox1
+                        this.mainWindow.loadNewPict(4);
+                    }
+                    else
+                    {
+                        //Display gutterball GIF in pictureBox1
+                        this.mainWindow.loadNewPict(1);
+                    }
+                   
+                    scores.Add(thisScore);
                     scores.Add(0);
                     gameEnd();
                 }
                 //Otherwise it is tenth frame, second shot and first was a strike
                 else
                 {
+                    //Display gutterball GIF in pictureBox1
+                    this.mainWindow.loadNewPict(1);
                     bowlInFrame++;
                 }
             }
@@ -118,6 +148,16 @@ namespace BillBall
             //Last shot of the game
             else if (frame == 10 && bowlInFrame == 3)
             {
+                if (thisScore >= 1 && thisScore <= 9)
+                {
+                    //Display hit GIF in pictureBox1
+                    this.mainWindow.loadNewPict(3);
+                }
+                else if (thisScore == 10)
+                {
+                    //Display strike GIF in pictureBox1
+                    this.mainWindow.loadNewPict(2);
+                }
                 score += thisScore;
                 scores.Add(thisScore);
                 gameEnd();
@@ -126,6 +166,12 @@ namespace BillBall
             //Bowl 2 of frame 10
             else if (frame == 10 && bowlInFrame == 2)
             {
+                if (thisScore >= 1 && thisScore <= 9)
+                {
+                    //Display hit GIF in pictureBox1
+                    this.mainWindow.loadNewPict(3);
+                }
+
                 score += thisScore;
                 if (secondLastScore == 11)
                     score += thisScore;
@@ -138,6 +184,8 @@ namespace BillBall
                 //Checks to see if its a spare
                 else if (thisScore + lastScore == 10)
                 {
+                    //Display spare GIF in pictureBox1
+                    this.mainWindow.loadNewPict(5);
                     scores.Add(10);
                     bowlInFrame++;
                     pinsLeft = 10;
@@ -145,6 +193,8 @@ namespace BillBall
                 //Checks to see if its a strike
                 else if (thisScore == 10 && lastScore == 11)
                 {
+                    //Display strike GIF in pictureBox1
+                    this.mainWindow.loadNewPict(2);
                     scores.Add(11);
                     bowlInFrame++;
                     pinsLeft = 10;
@@ -152,6 +202,8 @@ namespace BillBall
                 //Otherwise sees if last one was a strike
                 else if (lastScore == 11)
                 {
+                    //Display strike GIF in pictureBox1
+                    this.mainWindow.loadNewPict(2);
                     scores.Add(thisScore);
                     bowlInFrame++;
                 }
@@ -171,9 +223,37 @@ namespace BillBall
                     score += thisScore;
                 //Checks for spare
                 if (lastScore + thisScore == 10)
+                {
+                    if(lastScore == 0)
+                    {
+                        //Display specSare GIF in pictureBox1
+                        this.mainWindow.loadNewPict(6);
+                    }
+                    else
+                    {
+                        //Display spare GIF in pictureBox1
+                        this.mainWindow.loadNewPict(5);
+                    }
+                   
                     scores.Add(10);
-                else
+                }
+                else if (lastScore >= 0 && lastScore <= 9 && thisScore >= 1 && thisScore <= 9)
+                {
+                    if (lastScore == 0)
+                    {
+                        //Display hit GIF in pictureBox1
+                        this.mainWindow.loadNewPict(3);
+                    }
+                    else
+                    {
+                        //Display spare GIF in pictureBox1
+                        this.mainWindow.loadNewPict(7);
+                    }
+
+
                     scores.Add(thisScore);
+                }
+                    
             }
 
             //Otherwise check to see if its bowl 1 of any frame
@@ -185,9 +265,19 @@ namespace BillBall
                 if (secondLastScore == 11)
                     score += thisScore;
 
+                //Checks for hit
+                if(thisScore >= 1 && thisScore <= 9)
+                {
+                    //Display hit GIF in pictureBox1
+                    this.mainWindow.loadNewPict(3);
+                    scores.Add(thisScore);
+                }
+
                 //Checks for strike
                 if(thisScore == 10)
                 {
+                    //Display strike GIF in pictureBox1
+                    this.mainWindow.loadNewPict(2);
                     scores.Add(11);
                     if (frame == 10)
                         bowlInFrame++;
@@ -265,6 +355,6 @@ namespace BillBall
             resultsList.Add(data);
 
             return wordScore;
-        }   
+        }
     }
 }

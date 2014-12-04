@@ -70,6 +70,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
@@ -87,6 +88,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dictionary.txt" />
+    <None Include="Resources\specSpare.gif" />
+    <None Include="Resources\specHit.gif" />
+    <None Include="Resources\strike.gif" />
+    <None Include="Resources\spare.gif" />
+    <None Include="Resources\miss.gif" />
+    <None Include="Resources\hit.gif" />
+    <None Include="Resources\gutterball.gif" />
+    <None Include="Resources\gamePict.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
