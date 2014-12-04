@@ -51,6 +51,7 @@ namespace BillBall
 
         private void clearBtn_Click(object sender, EventArgs e)
         {
+            this.billball.startGame();
         }
 
         private void srcLabel_Click(object sender, EventArgs e)
