@@ -163,17 +163,17 @@
             // frameLabel
             // 
             this.frameLabel.AutoSize = true;
-            this.frameLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.frameLabel.Location = new System.Drawing.Point(12, 68);
             this.frameLabel.Name = "frameLabel";
-            this.frameLabel.Size = new System.Drawing.Size(52, 20);
+            this.frameLabel.Size = new System.Drawing.Size(65, 20);
             this.frameLabel.TabIndex = 13;
             this.frameLabel.Text = "Frame:";
             // 
             // frameValLabel
             // 
             this.frameValLabel.AutoSize = true;
-            this.frameValLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frameValLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.frameValLabel.Location = new System.Drawing.Point(70, 68);
             this.frameValLabel.Name = "frameValLabel";
             this.frameValLabel.Size = new System.Drawing.Size(0, 20);
@@ -182,20 +182,20 @@
             // scoreLabel
             // 
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scoreLabel.Location = new System.Drawing.Point(366, 68);
             this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(134, 20);
+            this.scoreLabel.Size = new System.Drawing.Size(168, 20);
             this.scoreLabel.TabIndex = 15;
             this.scoreLabel.Text = "Total Bowling Score";
             // 
             // scoreValLabel
             // 
             this.scoreValLabel.AutoSize = true;
-            this.scoreValLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scoreValLabel.Location = new System.Drawing.Point(505, 68);
+            this.scoreValLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreValLabel.Location = new System.Drawing.Point(540, 68);
             this.scoreValLabel.Name = "scoreValLabel";
-            this.scoreValLabel.Size = new System.Drawing.Size(13, 20);
+            this.scoreValLabel.Size = new System.Drawing.Size(14, 20);
             this.scoreValLabel.TabIndex = 16;
             this.scoreValLabel.Text = " ";
             // 

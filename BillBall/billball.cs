@@ -208,6 +208,7 @@ namespace BillBall
                 Console.WriteLine("Illegal Position");
 
             this.mainWindow.setSourceWord();
+            this.mainWindow.scoreUpdate(frame, score);
             //Testing purposes, printing game state
             Console.WriteLine("Frame: " + frame + " Pins left: " + pinsLeft + " Score: " + score + " Percent: " + percent + " This Score: " + thisScore);
         }
