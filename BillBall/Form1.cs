@@ -46,11 +46,12 @@ namespace BillBall
         public void scoreUpdate(int frameCount, int totalScore)
         {
             this.scoreValLabel.Text = "" + totalScore;
-            this.frameLabel.Text = "" + frameCount;
+            this.frameValLabel.Text = "" + frameCount;
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
         {
+            this.billball.startGame();
         }
 
         private void srcLabel_Click(object sender, EventArgs e)
@@ -61,6 +62,37 @@ namespace BillBall
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void loadGamePict()
+        {
+            pictureBox1.Image = BillBall.Properties.Resources.gamePict;
+        }
+
+        public void loadNewPict(int arg)
+        {
+            int caseSwitch = arg;
+            switch(caseSwitch)
+            {
+                case 1://gutterball
+                    pictureBox1.Image = BillBall.Properties.Resources.gutterball;
+                    break;
+                case 2://strike
+                    pictureBox1.Image = BillBall.Properties.Resources.strike;
+                    break;
+                case 3://hit
+                    pictureBox1.Image = BillBall.Properties.Resources.hit;
+                    break;
+                case 4://miss
+                    pictureBox1.Image = BillBall.Properties.Resources.miss;
+                    break;
+                case 5://spare
+                    pictureBox1.Image = BillBall.Properties.Resources.spare;
+                    break;
+                default://gamePict
+                    pictureBox1.Image = BillBall.Properties.Resources.gamePict;
+                    break;
+            }
         }
     }
 }
