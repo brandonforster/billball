@@ -89,6 +89,12 @@ namespace BillBall
                 case 5://spare
                     pictureBox1.Image = BillBall.Properties.Resources.spare;
                     break;
+                case 6://specSpare
+                    pictureBox1.Image = BillBall.Properties.Resources.specSpare;
+                    break;
+                case 7://specHit
+                    pictureBox1.Image = BillBall.Properties.Resources.specHit;
+                    break;
                 default://gamePict
                     pictureBox1.Image = BillBall.Properties.Resources.gamePict;
                     break;

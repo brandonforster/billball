@@ -88,6 +88,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dictionary.txt" />
+    <None Include="Resources\specSpare.gif" />
+    <None Include="Resources\specHit.gif" />
     <None Include="Resources\strike.gif" />
     <None Include="Resources\spare.gif" />
     <None Include="Resources\miss.gif" />
