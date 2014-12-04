@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataBox = new System.Windows.Forms.RichTextBox();
             this.inputBox = new System.Windows.Forms.TextBox();
             this.sbmtBtn = new System.Windows.Forms.Button();
             this.searchLabel = new System.Windows.Forms.Label();
@@ -41,15 +40,11 @@
             this.searchWorthLabel = new System.Windows.Forms.Label();
             this.searchValLabel = new System.Windows.Forms.Label();
             this.searchPointsLabel = new System.Windows.Forms.Label();
+            this.frameLabel = new System.Windows.Forms.Label();
+            this.frameValLabel = new System.Windows.Forms.Label();
+            this.scoreLabel = new System.Windows.Forms.Label();
+            this.scoreValLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // dataBox
-            // 
-            this.dataBox.Location = new System.Drawing.Point(12, 176);
-            this.dataBox.Name = "dataBox";
-            this.dataBox.Size = new System.Drawing.Size(311, 216);
-            this.dataBox.TabIndex = 0;
-            this.dataBox.Text = "";
             // 
             // inputBox
             // 
@@ -165,11 +160,54 @@
             this.searchPointsLabel.TabIndex = 12;
             this.searchPointsLabel.Text = "points!";
             // 
+            // frameLabel
+            // 
+            this.frameLabel.AutoSize = true;
+            this.frameLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frameLabel.Location = new System.Drawing.Point(12, 68);
+            this.frameLabel.Name = "frameLabel";
+            this.frameLabel.Size = new System.Drawing.Size(52, 20);
+            this.frameLabel.TabIndex = 13;
+            this.frameLabel.Text = "Frame:";
+            // 
+            // frameValLabel
+            // 
+            this.frameValLabel.AutoSize = true;
+            this.frameValLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frameValLabel.Location = new System.Drawing.Point(70, 68);
+            this.frameValLabel.Name = "frameValLabel";
+            this.frameValLabel.Size = new System.Drawing.Size(0, 20);
+            this.frameValLabel.TabIndex = 14;
+            // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.Location = new System.Drawing.Point(366, 68);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(134, 20);
+            this.scoreLabel.TabIndex = 15;
+            this.scoreLabel.Text = "Total Bowling Score";
+            // 
+            // scoreValLabel
+            // 
+            this.scoreValLabel.AutoSize = true;
+            this.scoreValLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreValLabel.Location = new System.Drawing.Point(505, 68);
+            this.scoreValLabel.Name = "scoreValLabel";
+            this.scoreValLabel.Size = new System.Drawing.Size(13, 20);
+            this.scoreValLabel.TabIndex = 16;
+            this.scoreValLabel.Text = " ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 431);
+            this.Controls.Add(this.scoreValLabel);
+            this.Controls.Add(this.scoreLabel);
+            this.Controls.Add(this.frameValLabel);
+            this.Controls.Add(this.frameLabel);
             this.Controls.Add(this.searchPointsLabel);
             this.Controls.Add(this.searchValLabel);
             this.Controls.Add(this.searchWorthLabel);
@@ -182,7 +220,6 @@
             this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.sbmtBtn);
             this.Controls.Add(this.inputBox);
-            this.Controls.Add(this.dataBox);
             this.Name = "Form1";
             this.Text = "Bill Ball";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -193,7 +230,6 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox dataBox;
         private System.Windows.Forms.TextBox inputBox;
         private System.Windows.Forms.Button sbmtBtn;
         private System.Windows.Forms.Label searchLabel;
@@ -206,6 +242,10 @@
         private System.Windows.Forms.Label searchWorthLabel;
         private System.Windows.Forms.Label searchValLabel;
         private System.Windows.Forms.Label searchPointsLabel;
+        private System.Windows.Forms.Label frameLabel;
+        private System.Windows.Forms.Label frameValLabel;
+        private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Label scoreValLabel;
 
     }
 }

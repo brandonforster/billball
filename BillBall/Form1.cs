@@ -32,15 +32,9 @@ namespace BillBall
             this.srcValLabel.Text = "" + billball.getSourceWordScore();
         }
 
-        public void writeToDatabox(String text)
-        {
-            this.dataBox.Text += text ;
-        }
-
         private void sbmtBtn_Click(object sender, EventArgs e)
         {
             this.searchValLabel.Text = String.Empty;
-            dataBox.Text = String.Empty;
 
             // show the user's play in the GUI
             this.searchValLabel.Text= "" + billball.getWordScore(inputBox.Text);
@@ -49,9 +43,15 @@ namespace BillBall
             billball.gameLoop(billball.getWordScore(inputBox.Text));
         }
 
+        public void scoreUpdate(int frameCount, int totalScore)
+        {
+            this.scoreValLabel.Text = "" + totalScore;
+            this.frameLabel.Text = "poop";
+        }
+
         private void clearBtn_Click(object sender, EventArgs e)
         {
-            dataBox.Text = String.Empty;
+            this.frameValLabel.Text = "poop";
         }
 
         private void srcLabel_Click(object sender, EventArgs e)
